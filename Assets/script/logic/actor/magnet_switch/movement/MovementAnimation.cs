@@ -43,15 +43,15 @@ public class MovementAnimation
     }
 
     public void Update()
-    {
+    { 
         if (startMovement)
-        {
-            movement[currentMovement].Update();
+        {           
             if (CanMoveToNextMovement())
             {
                 currentMovement++;
                 movement[currentMovement].Start();
             }
+            movement[currentMovement].Update();
         }
         finished = IsAnimationComplete();
     }

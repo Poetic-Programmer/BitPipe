@@ -13,9 +13,8 @@ class SwitchSpriteLoader
         "SwitchesB/switch_yellow_light",
         "SwitchesB/switch_purple_light",
         "SwitchesB/switch_orange_light"};
-
     Sprite[] switchSprite;
-    public Texture2D tex;
+
     public SwitchSpriteLoader()
     {
         var numberOfSprites = spriteImage.Length;

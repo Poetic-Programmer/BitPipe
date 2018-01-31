@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RetractedSwitchBehaviour : MonoBehaviour {
+public class RectractedSwitchMovementBehaviour : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

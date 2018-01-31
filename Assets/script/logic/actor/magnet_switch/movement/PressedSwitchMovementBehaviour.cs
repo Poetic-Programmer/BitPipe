@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class PressedSwitchBehaviour : SwitchMovementBehaviour
 {
-    const float timeToCompleteMovement = 0.01f;
+    const float timeToCompleteMovement = 0.05f;
     LinearCurve2D animationCurve;
 
-    public PressedSwitchBehaviour()
+    public PressedSwitchBehaviour(Vector2 startPoint, Vector2 endPoint) : base()
     {
-        movementVectors = SetMovementVectors();
         movementTimer = SetMovementTimer();
-        animationCurve = new LinearCurve2D(movementVectors.AnimationStartPoint,
-            movementVectors.AnimationEndPoint);
+        animationCurve = new LinearCurve2D(startPoint, endPoint);
     }
 
     public override void Update()
     {
         if(!movementTimer.MovementComplete)
         {
-            movementVectors.CurrentAnimationPosition = animationCurve.GetPointAt(
+            currentAnimationPosition = animationCurve.GetPointAt(
                 movementTimer.Timer);
         }
         movementTimer.Update();
@@ -30,8 +28,8 @@ public class PressedSwitchBehaviour : SwitchMovementBehaviour
         return new MovementTimer(timeToCompleteMovement);
     }
 
-    protected override MovementVectors SetMovementVectors()
+    protected override SwitchMovementType SetMovementType()
     {
-        return new MovementVectors(new Vector2(1, 1), new Vector2(1.05f, 1.05f));
+        return SwitchMovementType.PULLING_BACK;
     }
 }

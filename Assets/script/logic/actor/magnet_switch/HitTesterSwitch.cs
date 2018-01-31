@@ -9,13 +9,11 @@ public class HitTesterSwitch {
         get; set;
     }
 
-    // Use this for initialization
     public HitTesterSwitch(Bounds spriteBounds) {
         switchBounds = spriteBounds;
         SwitchHitState = HitTesterSwitchState.IDLE;
 	}
 	
-	// Update is called once per frame
 	public void Update () {
         var pos = Input.mousePosition; 
         pos = Camera.main.ScreenToWorldPoint(pos);
@@ -29,8 +27,11 @@ public class HitTesterSwitch {
                     if (Input.GetMouseButtonDown(0))
                         SwitchState(HitTesterSwitchState.PRESSED);
                     break;
-                case HitTesterSwitchState.PRESSED:
-                    
+                case HitTesterSwitchState.PRESSED: 
+                    if (!Input.GetMouseButtonDown(0))
+                    {
+                        SwitchState(HitTesterSwitchState.RELEASED);
+                    }
                     break;
                 case HitTesterSwitchState.RELEASED:
                     SwitchState(HitTesterSwitchState.IDLE);

@@ -52,9 +52,8 @@ public class MovementTimer
                 timer = 1;
                 movementLocked = false;
                 movementComplete = true;
-            }    
+            }
         }
-
     }
 
     public void Reset()
