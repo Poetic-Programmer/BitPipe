@@ -33,7 +33,6 @@ public class MovementAnimation
 
     public void AddMovement(SwitchMovementBehaviour movementBehaviour)
     {
-        Debug.Log("Added: " + movement.Count);
         movement.Add(movementBehaviour);
     }
 
@@ -45,7 +44,6 @@ public class MovementAnimation
 
     public void Update()
     {
-        //Debug.Log((currentMovement + 1) + ", " + movement.Count);
         if (startMovement)
         {
             movement[currentMovement].Update();

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Switch : MonoBehaviour {
     HitTesterSwitch hitTester;
     SwitchSprite spriteHandler;
-    BoxCollider2D collider2D;
     SwitchMovementBehaviour movementBehaviour;
     MovementAnimation clickMovementAnimation;
 
@@ -13,8 +12,8 @@ public class Switch : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        BoxCollider2D collider2D = (BoxCollider2D)GetComponent<BoxCollider2D>();
         spriteHandler = new SwitchSprite((SpriteRenderer)GetComponent<SpriteRenderer>());
-        collider2D = (BoxCollider2D)GetComponent<BoxCollider2D>();
         hitTester = new HitTesterSwitch(collider2D.bounds);
         movementBehaviour = new IdleSwitchBehaviour();
         clickMovementAnimation = new MovementAnimation();
@@ -22,6 +21,7 @@ public class Switch : MonoBehaviour {
         clickMovementAnimation.AddMovement(new RetractingSwitchBehaviour());
         spriteHandler.SetToColour(SwitchPipeColour.PURPLE);
         Scale = new Vector2();
+        transform.position = new Vector3(0, 0, 0);
 	}
 	
 	// Update is called once per frame
@@ -39,7 +39,6 @@ public class Switch : MonoBehaviour {
         {
             if (clickMovementAnimation.Finished)
             {
-                Debug.Log("RED");
                 spriteHandler.SetToColour(SwitchPipeColour.RED);
             }
         }

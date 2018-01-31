@@ -20,8 +20,6 @@ public class RetractingSwitchBehaviour : SwitchMovementBehaviour
         
         if (!movementTimer.MovementComplete)
         {
-            //Debug.Log(movementTimer.Timer);
-            Debug.Log("RETRACT TIMER: " + movementTimer.Timer);
             movementVectors.CurrentAnimationPosition = animationCurve.GetPointAt(
                 movementTimer.Timer);
         }

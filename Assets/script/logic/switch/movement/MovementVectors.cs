@@ -12,7 +12,6 @@ public class MovementVectors
     {
         this.animationStartPoint = animationStartPoint;
         this.animationEndPoint = animationEndPoint;
-        // initialize to (1,1) so transformations don't get scaled to 0
         this.currentAnimationPosition = animationStartPoint; 
     }
 

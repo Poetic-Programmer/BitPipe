@@ -19,8 +19,6 @@ public class PressedSwitchBehaviour : SwitchMovementBehaviour
     {
         if(!movementTimer.MovementComplete)
         {
-            //Debug.Log(movementVectors.CurrentAnimationPosition);
-            Debug.Log("PRESSED TIMER: " + movementTimer.Timer);
             movementVectors.CurrentAnimationPosition = animationCurve.GetPointAt(
                 movementTimer.Timer);
         }

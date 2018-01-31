@@ -42,22 +42,19 @@ public class MovementTimer
         movementStart = true;
     }
     public void Update()
-    {
-        
+    {  
         if (!movementComplete && movementStart)
         {   
             timer += (Time.deltaTime / timeToCompleteInSeconds) * speedModifier;
-            if (!movementLocked)
+
+            if (timer >= 1)
             {
+                timer = 1;
+                movementLocked = false;
                 movementComplete = true;
-            }       
+            }    
         }
-        if (timer >= 1)
-        {
-            Debug.Log("HIT");
-            timer = 1;
-            movementLocked = false;
-        }
+
     }
 
     public void Reset()
