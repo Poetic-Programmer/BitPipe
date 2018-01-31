@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PressedSwitchBehaviour : SwitchMovementBehaviour
 {
-    const float timeToCompleteMovement = 0.05f;
+    const float timeToCompleteMovement = 0.025f;
     LinearCurve2D animationCurve;
 
     public PressedSwitchBehaviour(Vector2 startPoint, Vector2 endPoint) : base()

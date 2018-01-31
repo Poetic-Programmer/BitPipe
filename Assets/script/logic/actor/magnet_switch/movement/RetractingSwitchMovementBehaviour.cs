@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RetractingSwitchBehaviour : SwitchMovementBehaviour
 {
-    const float timeToCompleteMovement = 0.2f;
+    const float timeToCompleteMovement = 0.1f;
     LinearCurve2D animationCurve;
 
     public RetractingSwitchBehaviour(Vector2 startPoint, Vector2 endPoint) : base()

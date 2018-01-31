@@ -13,7 +13,7 @@ public class SwitchAnimationVector {
         pressedScalingStartPoint = new Vector2(1, 1);
         pressedScalingEndPoint = new Vector2(1.2f, 1.2f);
         retractingScalingStartPoint = pressedScalingEndPoint;
-        retractingScalingEndPoint = new Vector2(0.2f, 0.2f);
+        retractingScalingEndPoint = new Vector2(0.75f, 0.75f);
     }
 
     public Vector2 PressedScalingStartPoint

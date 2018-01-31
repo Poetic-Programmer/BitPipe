@@ -9,6 +9,6 @@ public class DebugCamera : MonoBehaviour {
     {
         cam = GetComponent<Camera>();
         cam.clearFlags = CameraClearFlags.SolidColor;
-        cam.backgroundColor = new Color(0.2f, 0.2f, 0.2f);
+        cam.backgroundColor = new Color(0.4f, 0.4f, 0.4f);
     }
 }
