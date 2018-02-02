@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagnetSwitch : MonoBehaviour {
+public class MagnetSwitch : MonoBehaviour{
     SwitchSprite sprite;
     MagnetSwitchBehaviour behaviour;
     HitTesterSwitch hitTester;
+    BoxCollider2D collider2D;
+    public float ScaleOffset
+    {
+        set { scaleOffset = value; }
+    }
 
-	// Use this for initialization
-	void Start () {
-        BoxCollider2D collider2D = (BoxCollider2D)GetComponent<BoxCollider2D>();
-        SpriteRenderer renderer = (SpriteRenderer)GetComponent<SpriteRenderer>();
-
-        sprite = new SwitchSprite(renderer);
+    float scaleOffset;
+    // Use this for initialization
+    void Start() {
+        collider2D = (BoxCollider2D)GetComponent<BoxCollider2D>();
+        collider2D.transform.localScale = new Vector3(2.75f, 2.75f, 1);
+        sprite = new SwitchSprite((SpriteRenderer)GetComponent<SpriteRenderer>());
         behaviour = new MagnetSwitchBehaviour();
         hitTester = new HitTesterSwitch(collider2D.bounds);
 
+        scaleOffset = 0.5f;
         sprite.SetToColour(SwitchPipeColour.BLUE);
 	}
 	
@@ -26,15 +32,23 @@ public class MagnetSwitch : MonoBehaviour {
 
         UpdateTransformations();
         UpdateColours();
+        UpdateCollider();
 	}
 
     private void UpdateTransformations()
     {
-        transform.localScale = behaviour.GetScaleBasedOnCurrentAnimation;
-        Debug.Log(transform.localScale);
+        transform.localScale = behaviour.GetScaleBasedOnCurrentAnimation * scaleOffset;
+        //Debug.Log(transform.localScale);
     }
     private void UpdateColours()
     {
         sprite.SetColourBasedOnBehaviour(behaviour.GetCurrentMovementType);
+    }
+    private void UpdateCollider()
+    {
+        if (hitTester.SwitchHitState == HitTesterSwitchState.RELEASED)
+        {
+            collider2D.enabled = false;
+        }
     }
 }
